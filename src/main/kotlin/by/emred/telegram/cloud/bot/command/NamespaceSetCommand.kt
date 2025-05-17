@@ -12,9 +12,9 @@ import org.telegram.telegrambots.meta.api.objects.User
 import org.telegram.telegrambots.meta.bots.AbsSender
 
 @Component
-class NamespaceChangeCommand : BotCommand(Command.NAMESPACE_CHANGE.value, Command.NAMESPACE_CHANGE.description) {
+class NamespaceSetCommand : BotCommand(Command.NAMESPACE_SET.value, Command.NAMESPACE_SET.description) {
     override fun execute(absSender: AbsSender, user: User, chat: Chat, arguments: Array<out String>?) {
-        absSender.execute(BotUtils.createMessage(user.id, "Enter name of namespace"))
         UserStateHolder.set(UserState(userId = user.id, BotState.AWAITING_NAMESPACE_FOR_PODS))
+        absSender.execute(BotUtils.createMessage(user.id, "Enter name of namespace"))
     }
 }
