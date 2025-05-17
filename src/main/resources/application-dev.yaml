@@ -1,0 +1,4 @@
+telegram:
+  username: DevOps_Spring_Bot
+  bot-name: devOps-bot
+  token: ${telegram_token}
